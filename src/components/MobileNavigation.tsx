@@ -28,7 +28,7 @@ export default function MobileNavigation({links=[
     <DropdownMenu>
   <DropdownMenuTrigger><MenuIcon size={40}/></DropdownMenuTrigger>
   <DropdownMenuContent>
-    {links.map(link=><DropdownMenuItem  ><NavLink href={link.href}>{link.title}</NavLink></DropdownMenuItem>)}
+    {links.map(link=><DropdownMenuItem key={link.title} ><NavLink href={link.href}>{link.title}</NavLink></DropdownMenuItem>)}
 
   </DropdownMenuContent>
 </DropdownMenu>
