@@ -2,7 +2,6 @@ import Card from '@/components/Card';
 import React from 'react';
 import Image from 'next/image';
 import mainPic from "./main_pic.jpg"
-import placeholder from './placeholder.jpg'
 const HomePage = () => {
   return (
     <div className="bg-white">
