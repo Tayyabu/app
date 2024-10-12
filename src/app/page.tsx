@@ -15,7 +15,7 @@ const HomePage = () => {
           alt="Place holder" 
           width={600}
           height={300}
-          className="opacity-50"
+          className=""
         />
         <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to our company website </h1>
