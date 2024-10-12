@@ -35,7 +35,7 @@ const PrivacyPolicyPage = () => {
       <address className="mb-5">
         Clothing Website<br />
         123 Fashion Ave<br />
-        New York, NY 10001<br />
+        Faisalabad, FSD 10001<br />
         United States
       </address>
 

@@ -1,4 +1,4 @@
-import Card from '@/components/Card';
+
 import React from 'react';
 import Image from 'next/image';
 import mainPic from "./main_pic.jpg"
@@ -7,19 +7,22 @@ const HomePage = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative flex justify-center bg-slate-800 text-white">
-        <Image 
-          src={mainPic} 
+      <section className="relative flex justify-center bg-slate-800 object-cover text-white">
+        <img 
+          src={mainPic.src} 
           
-          objectFit="cover" 
+           
           alt="Place holder" 
           width={600}
           height={300}
           className="opacity-50"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Our Store</h1>
-          <p className="text-lg md:text-xl mb-8">Discover the latest trends in fashion and style</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to our company website </h1>
+          <p className="text-lg md:text-xl mb-8">
+          Since 2015, our clothing company  has crafted high-quality, stylish apparel that blends timeless elegance with modern trends.
+
+          </p>
           <a href="#featured-products" className="bg-black text-white px-6 py-3 rounded-full text-lg">
             Shop Now
           </a>

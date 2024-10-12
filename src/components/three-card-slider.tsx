@@ -1,49 +1,61 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Card from "@/components/Card";
 import { Button } from "@/components/ui/button";
 import image1 from "@/app/public/IMG-20241011-WA0050.jpg";
 import image2 from "@/app/public/IMG-20241011-WA0051.jpg";
-import image3 from "@/app/public/IMG-20241011-WA0055.jpg";
 import image4 from "@/app/public/IMG-20241011-WA0069.jpg";
 import image5 from "@/app/public/IMG-20241011-WA0070.jpg";
 import image6 from "@/app/public/IMG-20241011-WA0069.jpg";
+
 export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-
+  
   const cards = [
     {
-      title: "Mountain Vista",
+      title: "Suit 1",
       content: "Breathtaking views of majestic peaks.",
-      image: image1.src,
+      image: image1,
+      price:3000,
+
+      discountInPercentage:43
     },
     {
-      title: "Coastal Sunset",
+      title: "Suit 2",
       content: "Serene beaches at golden hour.",
-      image: image2.src,
+      image: image2,
+      price:3000,
+      discountInPercentage:60
     },
     {
-      title: "Forest Trail",
+      title: "Suit 3",
       content: "Lush green paths through ancient woods.",
-      image: image5.src,
+      image: image5,
+      price:4000,
+      discountInPercentage:63
     },
     {
-      title: "Desert Oasis",
+      title: "Suit 4",
       content: "Unexpected beauty in arid landscapes.",
-      image: image4.src,
+      image: image4,
+      price:6000,
+      discountInPercentage:32
     },
     {
-      title: "Alpine Lake",
+      title: "Suit 5",
       content: "Crystal clear waters reflect snowy peaks.",
-      image: image5.src,
+      image: image5,
+      price:7000,
+      discountInPercentage:40
     },
     {
-      title: "Tropical Paradise",
+      title: "Suit 6",
       content: "Palm-fringed beaches and turquoise waters.",
-      image: image6.src,
+      image: image6,
+      price:1000,
+      discountInPercentage:20
     },
   ];
 
@@ -59,19 +71,19 @@ export function ThreeCardSlider() {
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-    if (isPlaying) {
+   
       interval = setInterval(() => {
         nextSlide();
       }, 5000); // Change slide every 5 seconds
-    }
+   
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isPlaying, nextSlide]);
+  }, [ nextSlide]);
 
   return (
-    <div className="w-full overflow-hidden mx-auto px-4">
-      <div className="relative overflow-hidden  ">
+    <div className="w-full overflow-scroll ">
+      <div className="relative p-3 overflow-hidden  ">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}

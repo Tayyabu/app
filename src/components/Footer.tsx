@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -5,13 +6,13 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white py-5 text-center">
       <div className="max-w-screen-xl mx-auto">
         <div className="mb-5">
-          <a href="/about" className="text-white no-underline mx-2">About Us</a>
-          <a href="/contact" className="text-white no-underline mx-2">Contact</a>
+          <Link href="/about" className="text-white no-underline mx-2">About Us</Link>
+          <Link href="/contact" className="text-white no-underline mx-2">Contact</Link>
+          <Link href="/services" className="text-white no-underline mx-2">Services</Link>
          
-          {/* <a href="/returns" className="text-white no-underline mx-2">Returns</a> */}
-          {/* <a href="/shipping" className="text-white no-underline mx-2">Shipping</a> */}
-          <a href="/privacy-policy" className="text-white no-underline mx-2">Privacy Policy</a>
-          <a href="/terms-of-service" className="text-white no-underline mx-2">Terms of Service</a>
+          
+          <Link href="/privacy-policy" className="text-white no-underline mx-2">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="text-white no-underline mx-2">Terms of Service</Link>
         </div>
         <div className="mb-5">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline mx-2">Facebook</a>
