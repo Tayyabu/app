@@ -1,69 +1,28 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Card from "@/components/Card";
 import { Button } from "@/components/ui/button";
-import image1 from "@/app/public/IMG-20241011-WA0050.jpg";
-import image2 from "@/app/public/IMG-20241011-WA0051.jpg";
-import image4 from "@/app/public/IMG-20241011-WA0069.jpg";
-import image5 from "@/app/public/IMG-20241011-WA0070.jpg";
-import image6 from "@/app/public/IMG-20241011-WA0069.jpg";
+
 import { useWindowSize } from "@/hooks/useWindowSize";
+import { cards } from "@/data/products";
+import { useSearchParams } from "next/navigation";
 
 export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const { w } = useWindowSize();
-  const cards = [
-    {
-      title: "Suit 1",
-      content: "Breathtaking views of majestic peaks.",
-      image: image1,
-      price: 3000,
-
-      discountInPercentage: 43,
-    },
-    {
-      title: "Suit 2",
-      content: "Serene beaches at golden hour.",
-      image: image2,
-      price: 3000,
-      discountInPercentage: 60,
-    },
-    {
-      title: "Suit 3",
-      content: "Lush green paths through ancient woods.",
-      image: image5,
-      price: 4000,
-      discountInPercentage: 63,
-    },
-    {
-      title: "Suit 4",
-      content: "Unexpected beauty in arid landscapes.",
-      image: image4,
-      price: 6000,
-      discountInPercentage: 32,
-    },
-    {
-      title: "Suit 5",
-      content: "Crystal clear waters reflect snowy peaks.",
-      image: image5,
-      price: 7000,
-      discountInPercentage: 40,
-    },
-    {
-      title: "Suit 6",
-      content: "Palm-fringed beaches and turquoise waters.",
-      image: image6,
-      price: 1000,
-      discountInPercentage: 20,
-    },
-  ];
+  let selectedCategory = useSearchParams().get("selectedCategory");
+  const products = useMemo(() => {
+    return cards.filter(
+      (product) => product.category === (selectedCategory ?? "men")
+    );
+  }, [selectedCategory]);
 
   const cardPerSlide = w < 560 ? 1 : w < 700 ? 2 : 3;
 
-  const totalSlides = Math.ceil(cards.length / cardPerSlide);
+  const totalSlides = Math.ceil(products.length / cardPerSlide);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
@@ -93,22 +52,23 @@ export function ThreeCardSlider() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {isClient && Array.from({ length: totalSlides }).map((_, slideIndex) => (
-            <div key={slideIndex} className="w-full flex-shrink-0 flex ">
-              {cards
-                .slice(
-                  slideIndex * cardPerSlide,
-                  slideIndex * cardPerSlide + cardPerSlide
-                )
-                .map((card, cardIndex) => (
-                  <Card
-                    cardPerSlide={isClient ? cardPerSlide : 3}
-                    key={cardIndex}
-                    {...card}
-                  />
-                ))}
-            </div>
-          ))}
+          {isClient &&
+            Array.from({ length: totalSlides }).map((_, slideIndex) => (
+              <div key={slideIndex} className="w-full flex-shrink-0 flex ">
+                {products
+                  .slice(
+                    slideIndex * cardPerSlide,
+                    slideIndex * cardPerSlide + cardPerSlide
+                  )
+                  .map((card, cardIndex) => (
+                    <Card
+                      cardPerSlide={cardPerSlide}
+                      key={cardIndex}
+                      {...card}
+                    />
+                  ))}
+              </div>
+            ))}
         </div>
         <div className="absolute inset-y-0 left-0 flex items-center">
           <Button
