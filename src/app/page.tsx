@@ -5,7 +5,8 @@ import { ThreeCardSlider } from "@/components/three-card-slider";
 import LandingPageText from "@/components/LandingPageText";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-const HomePage = () => {
+const HomePage = ({searchParams}:
+  { searchParams?: { [key: string]: string | string[] | undefined };}) => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -62,7 +63,7 @@ const HomePage = () => {
               </Link>
             </Button>
           </div>
-          <ThreeCardSlider />
+          <ThreeCardSlider selectedCategory={searchParams?.selectedCategory as string } />
         </div>
       </section>
     </div>
