@@ -64,8 +64,8 @@ const HomePage = () => {
               </Link>
             </Button>
           </div>
-          <Suspense fallback={<div>
-            <Loader2 className="animate-spin" fontSize={60}/>
+          <Suspense fallback={<div className="w-full flex justify-center">
+            <Loader2 className="animate-spin" size={60} fontSize={60}/>
           </div>}>
             <ThreeCardSlider  />
           </Suspense>
