@@ -1,26 +1,20 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo ,Suspense} from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Card from "@/components/Card";
 import { Button } from "@/components/ui/button";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { cards } from "@/data/products";
+import { useSearchParams } from "next/navigation";
 
-
-export function ThreeCardSlider(props:{selectedCategory:string|null}) {
+export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const { w } = useWindowSize();
-
-function searchParams() {
-  
-}
-
-
-  let selectedCategory= 'men';
-selectedCategory =props.selectedCategory||"men"
+  let selectedCategory = 'men';
+selectedCategory =useSearchParams().get('selectedCategory') as string
 
 
   const products = useMemo(() => {

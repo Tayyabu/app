@@ -5,8 +5,9 @@ import { ThreeCardSlider } from "@/components/three-card-slider";
 import LandingPageText from "@/components/LandingPageText";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-const HomePage = ({searchParams}:
-  { searchParams?: { [key: string]: string | string[] | undefined };}) => {
+import { Suspense } from "react";
+import { Loader2 } from "lucide-react";
+const HomePage = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -63,7 +64,11 @@ const HomePage = ({searchParams}:
               </Link>
             </Button>
           </div>
-          <ThreeCardSlider selectedCategory={searchParams?.selectedCategory as string } />
+          <Suspense fallback={<div>
+            <Loader2 className="animate-spin" fontSize={60}/>
+          </div>}>
+            <ThreeCardSlider  />
+          </Suspense>
         </div>
       </section>
     </div>
