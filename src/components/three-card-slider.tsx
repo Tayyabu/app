@@ -13,54 +13,55 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 
 export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {w}=useWindowSize()
+  const [isClient, setIsClient] = useState(false);
+  const { w } = useWindowSize();
   const cards = [
     {
       title: "Suit 1",
       content: "Breathtaking views of majestic peaks.",
       image: image1,
-      price:3000,
+      price: 3000,
 
-      discountInPercentage:43
+      discountInPercentage: 43,
     },
     {
       title: "Suit 2",
       content: "Serene beaches at golden hour.",
       image: image2,
-      price:3000,
-      discountInPercentage:60
+      price: 3000,
+      discountInPercentage: 60,
     },
     {
       title: "Suit 3",
       content: "Lush green paths through ancient woods.",
       image: image5,
-      price:4000,
-      discountInPercentage:63
+      price: 4000,
+      discountInPercentage: 63,
     },
     {
       title: "Suit 4",
       content: "Unexpected beauty in arid landscapes.",
       image: image4,
-      price:6000,
-      discountInPercentage:32
+      price: 6000,
+      discountInPercentage: 32,
     },
     {
       title: "Suit 5",
       content: "Crystal clear waters reflect snowy peaks.",
       image: image5,
-      price:7000,
-      discountInPercentage:40
+      price: 7000,
+      discountInPercentage: 40,
     },
     {
       title: "Suit 6",
       content: "Palm-fringed beaches and turquoise waters.",
       image: image6,
-      price:1000,
-      discountInPercentage:20
+      price: 1000,
+      discountInPercentage: 20,
     },
   ];
 
-  const cardPerSlide = w<560?1:w<700?2:3
+  const cardPerSlide = w < 560 ? 1 : w < 700 ? 2 : 3;
 
   const totalSlides = Math.ceil(cards.length / cardPerSlide);
 
@@ -74,15 +75,16 @@ export function ThreeCardSlider() {
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-   
-      interval = setInterval(() => {
-        nextSlide();
-      }, 5000); // Change slide every 5 seconds
-   
+    setIsClient(true);
+
+    interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Change slide every 5 seconds
+
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [ nextSlide]);
+  }, [nextSlide]);
 
   return (
     <div className="w-full overflow-hidden ">
@@ -91,15 +93,19 @@ export function ThreeCardSlider() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-            <div
-              key={slideIndex}
-              className="w-full flex-shrink-0 flex "
-            >
+          {isClient && Array.from({ length: totalSlides }).map((_, slideIndex) => (
+            <div key={slideIndex} className="w-full flex-shrink-0 flex ">
               {cards
-                .slice(slideIndex * cardPerSlide, slideIndex * cardPerSlide + cardPerSlide)
+                .slice(
+                  slideIndex * cardPerSlide,
+                  slideIndex * cardPerSlide + cardPerSlide
+                )
                 .map((card, cardIndex) => (
-                  <Card cardPerSlide={cardPerSlide} key={cardIndex} {...card} />
+                  <Card
+                    cardPerSlide={isClient ? cardPerSlide : 3}
+                    key={cardIndex}
+                    {...card}
+                  />
                 ))}
             </div>
           ))}
