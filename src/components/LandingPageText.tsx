@@ -27,6 +27,7 @@ function LandingPageText() {
             translateY: 1000,
           }}
           whileHover={{ fontSize: "30px" }}
+          whileFocus={{ fontSize: "30px" }}
           animate={{
             translateY: 0,
           }}
