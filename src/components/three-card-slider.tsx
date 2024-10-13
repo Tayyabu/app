@@ -13,7 +13,10 @@ export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const { w } = useWindowSize();
-  let selectedCategory = useSearchParams().get("selectedCategory");
+  let selectedCategory = 'men';
+selectedCategory =useSearchParams().get('selectedCategory') as string
+
+
   const products = useMemo(() => {
     return cards.filter(
       (product) => product.category === (selectedCategory ?? "men")
