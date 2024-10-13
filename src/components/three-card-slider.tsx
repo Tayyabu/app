@@ -9,10 +9,11 @@ import image2 from "@/app/public/IMG-20241011-WA0051.jpg";
 import image4 from "@/app/public/IMG-20241011-WA0069.jpg";
 import image5 from "@/app/public/IMG-20241011-WA0070.jpg";
 import image6 from "@/app/public/IMG-20241011-WA0069.jpg";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 export function ThreeCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+  const {w}=useWindowSize()
   const cards = [
     {
       title: "Suit 1",
@@ -59,7 +60,9 @@ export function ThreeCardSlider() {
     },
   ];
 
-  const totalSlides = Math.ceil(cards.length / 3);
+  const cardPerSlide = w<560?1:w<700?2:3
+
+  const totalSlides = Math.ceil(cards.length / cardPerSlide);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
@@ -82,7 +85,7 @@ export function ThreeCardSlider() {
   }, [ nextSlide]);
 
   return (
-    <div className="w-full overflow-scroll ">
+    <div className="w-full overflow-hidden ">
       <div className="relative p-3 overflow-hidden  ">
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -91,12 +94,12 @@ export function ThreeCardSlider() {
           {Array.from({ length: totalSlides }).map((_, slideIndex) => (
             <div
               key={slideIndex}
-              className="w-full flex-shrink-0 flex space-x-4"
+              className="w-full flex-shrink-0 flex "
             >
               {cards
-                .slice(slideIndex * 3, slideIndex * 3 + 3)
+                .slice(slideIndex * cardPerSlide, slideIndex * cardPerSlide + cardPerSlide)
                 .map((card, cardIndex) => (
-                  <Card key={cardIndex} {...card} />
+                  <Card cardPerSlide={cardPerSlide} key={cardIndex} {...card} />
                 ))}
             </div>
           ))}

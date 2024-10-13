@@ -66,6 +66,11 @@
   }
 }
  
+.linear__text__gradient {
+  background: linear-gradient(to right bottom, white 30%, #252525);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @layer base {
   * {
     @apply border-border;
