@@ -1,10 +1,7 @@
 
-import React from "react";
 import Image from "next/image";
 import mainPic from "./main_pic.jpg";
 import gentImage from "./public/download.jpg";
-import kidImage from "./public/kids.jpg";
-import { motion, Variants } from "framer-motion";
 import { ThreeCardSlider } from "@/components/three-card-slider";
 import LandingPageText from "@/components/LandingPageText";
 const HomePage = () => {

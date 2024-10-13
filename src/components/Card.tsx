@@ -1,7 +1,7 @@
 // components/ClothingCard.js
 
 import Image, { StaticImageData } from "next/image";
-import { Button } from "./ui/button";
+
 import { formatCurrency, sellingPrice } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 

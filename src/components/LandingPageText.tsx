@@ -21,7 +21,7 @@ function LandingPageText() {
       Welcome to our company website 
     </motion.h1>
     {/* <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to our company website </h1> */}
-    <div className="flex w-full justify-center tralate-x-[50%]">
+    <div className="flex w-full justify-center ">
         <motion.p
           initial={{
             translateY: 1000,
@@ -33,7 +33,7 @@ function LandingPageText() {
           
         
           transition={{ duration: 1.6 }}
-          className="text-2xl w-1/3 font-serif font-extralight md:text-2xl text-center leading-snug mb-8"
+          className="text-2xl md:1/2  lg:w-1/3 font-serif font-extralight md:text-2xl text-center leading-snug mb-8"
         >
           Since 2015, our clothing company has crafted high-quality, stylish
           apparel that blends timeless elegance with modern trends.
