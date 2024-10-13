@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { cards } from "@/data/products";
-import { useSearchParams } from "next/navigation";
+
 
 export function ThreeCardSlider(props:{selectedCategory:string|null}) {
   const [currentIndex, setCurrentIndex] = useState(0);
