@@ -1,19 +1,14 @@
-import Link from "next/link";
+import { links } from "@/data/links";
 
 
 const Footer = () => {
+
+  
+ 
   return (
     <footer className="bg-gray-800 text-white py-5 text-center">
       <div className="max-w-screen-xl mx-auto">
-        <div className="mb-5">
-          <Link href="/about" className="text-white no-underline mx-2">About Us</Link>
-          <Link href="/contact" className="text-white no-underline mx-2">Contact</Link>
-          <Link href="/services" className="text-white no-underline mx-2">Services</Link>
-         
-          
-          <Link href="/privacy-policy" className="text-white no-underline mx-2">Privacy Policy</Link>
-          <Link href="/terms-of-service" className="text-white no-underline mx-2">Terms of Service</Link>
-        </div>
+       
         <div className="mb-5">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline mx-2">Facebook</a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline mx-2">Twitter</a>

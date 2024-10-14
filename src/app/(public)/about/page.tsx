@@ -11,7 +11,7 @@ export default function AboutUs() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
         <p className="text-muted-foreground mb-4">
-          Founded in 2023, our company has been at the forefront of innovation in the tech industry. 
+          Founded in 2015, our company has been at the forefront of innovation in the tech industry. 
           We started with a simple idea: to make technology accessible to everyone. Today, we're proud 
           to serve customers worldwide with our cutting-edge solutions.
         </p>

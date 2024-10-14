@@ -9,8 +9,9 @@ import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 const HomePage = () => {
   return (
-    <div className="bg-white">
+    <div className="b-white">
       {/* Hero Section */}
+      <LandingPageText />
       <section className="relative w-full flex justify-center bg-slate-800 object-cover text-white">
         <div className="flex w-full md:flex-row  lg:flex-row flex-col items-center">
           <Image
@@ -29,18 +30,18 @@ const HomePage = () => {
             className="w-full lg:w-1/2   h-full"
           />
         </div>
-        <LandingPageText />
+        
       </section>
 
       {/* Featured Products Section */}
       <section className="py-16">
         <div className="max-w-screen-xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
+          <h2 className="text-3xl  font-bold text-center mb-8">
             Featured Products
           </h2>
           <div className="flex justify-center font-serif w-full gap-8">
             <Button asChild variant={"ghost"}>
-              <Link  className="bg-for" href={{pathname:"/",query:{ selectedCategory: "men" },}}
+              <Link  className="font-roboto" href={{pathname:"/",query:{ selectedCategory: "men" },}}
               scroll={false}
               
               >
@@ -49,7 +50,7 @@ const HomePage = () => {
             </Button>
             <Button asChild  variant={"ghost"}>
               <Link
-                className="bg-for" href={{pathname:"/",query:{ selectedCategory: "women" }}}
+                className="font-roboto" href={{pathname:"/",query:{ selectedCategory: "women" }}}
                 scroll={false}
               >
                 Women
@@ -57,7 +58,7 @@ const HomePage = () => {
             </Button>
             <Button asChild variant={"ghost"}>
               <Link
-                className="bg-for" href={{pathname:"/",query:{ selectedCategory: "kids" }}}
+                className="font-roboto" href={{pathname:"/",query:{ selectedCategory: "kids" }}}
                 scroll={false}
               >
                 Kids

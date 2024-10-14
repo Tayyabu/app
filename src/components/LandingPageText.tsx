@@ -1,13 +1,12 @@
 "use client";
 import { motion } from "framer-motion"
-import { useWindowSize } from "@/hooks/useWindowSize";
 function LandingPageText() {
 
 
 
-    const {w}=useWindowSize()
+    
   return (
-    <div className="absolute inset-0 flex flex-col items-start justify-start text-center p-4">
+    <div className="flex flex-col items-start justify-start text-center p-4">
     <motion.h1
       initial={{
         opacity: 0,
@@ -16,7 +15,7 @@ function LandingPageText() {
         opacity: 1,
       }}
       transition={{ duration: 1 }}
-      className=" linear__text__gradient text-3xl font-serif font-extrabold  tracking-tight  lg:text-5xl w-full sm:leading-none "
+      className="  text-3xl  font-bold  tracking-tight  lg:text-5xl w-full sm:leading-none "
     >
       Welcome to our company website 
     </motion.h1>
@@ -24,20 +23,19 @@ function LandingPageText() {
     <div className="flex w-full justify-center ">
         <motion.p
           initial={{
-            translateY: 1000,
+            translateX: 1000,
           }}
-          whileHover={{ fontSize: "30px" }}
-          whileFocus={{ fontSize: "30px" }}
+         
           animate={{
-            translateY: 0,
+            translateX: 0,
           }}
           
         
           transition={{ duration: 1.6 }}
-          className="text-2xl md:1/2  lg:w-1/3 font-serif font-extralight md:text-2xl text-center leading-snug mb-8"
+          className="text-2xl md:1/2 p-3 lg:w-1/3 font-extralight md:text-2xl text-center leading-snug mb-8"
         >
-          Since 2015, our clothing company has crafted high-quality, stylish
-          apparel that blends timeless elegance with modern trends.
+          Introducing "Snitch": A cutting-edge clothing company dedicated to bringing you the latest in fashion-forward designs and sustainable style. Discover your unique look with us today! 
+
         </motion.p>
     </div>
   </div>
